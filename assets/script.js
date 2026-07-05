@@ -243,7 +243,13 @@ jQuery(document).ready(function ($){
 
         async function loadSheetData() {
             try {
-                const response = await fetch(API_URL);
+                const response = await fetch(API_URL, {
+    method: 'GET',
+    mode: 'cors', // Explicitly request CORS headers
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
                 const data = await response.json();
                 
                 const outputDiv = document.getElementById('output');

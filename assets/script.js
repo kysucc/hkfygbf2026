@@ -239,7 +239,7 @@ jQuery(document).ready(function ($){
                 }
             });
 
-            const API_URL = "https://script.google.com/macros/s/AKfycbzRYzSeC75kJGWLiZ6kzClaeJBaK4ubiqwVIdED8E4e-wqhmdMfmkXPz-MDH_0GwvGNrQ/exec";
+            const API_URL = "https://script.google.com/macros/s/AKfycbzu5luQwTKv3v-6oPMKhDysriSrFxCspGtXTLPB8kY66JghZOlXYlVvXSZfrEiCYW_4/exec";
 
         async function loadSheetData() {
             try {

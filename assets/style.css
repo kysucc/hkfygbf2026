@@ -790,7 +790,7 @@ section {
       margin: 0rem 1rem 2rem 1rem;
       padding: 0 2em;
       text-align: center; }
-  section#award, section#votepopup {
+  section#award, section#votepopup, section#submissionpopup {
     /*margin-top: -6vw;*/
     padding-bottom: 7rem;
     position: relative;
@@ -804,52 +804,52 @@ section {
     }
     &.withtexture:after{opacity: 0.3;height:90vw;}*/
     /*#tabSecondary .item-number{background: $color-theme-greenlight;}*/ }
-    section#award .img-blend, section#votepopup .img-blend {
+    section#award .img-blend, section#votepopup .img-blend, section#submissionpopup .img-blend {
       width: 80vh;
       height: 80vh;
       background: url(blend.svg) no-repeat 50% 50%/contain;
       opacity: 0.15;
       mix-blend-mode: color-dodge;
       position: absolute; }
-      section#award .img-blend.img1, section#votepopup .img-blend.img1 {
+      section#award .img-blend.img1, section#votepopup .img-blend.img1, section#submissionpopup .img-blend.img1 {
         left: -40vh;
         top: 40vh;
         transform: rotate(45deg); }
-      section#award .img-blend.img2, section#votepopup .img-blend.img2 {
+      section#award .img-blend.img2, section#votepopup .img-blend.img2, section#submissionpopup .img-blend.img2 {
         right: -40vh;
         top: 40vh;
         transform: rotate(45deg); }
-      section#award .img-blend.img3, section#votepopup .img-blend.img3 {
+      section#award .img-blend.img3, section#votepopup .img-blend.img3, section#submissionpopup .img-blend.img3 {
         left: calc((100vw - 80vh) / 2);
         top: 60vh;
         transform: rotate(225deg); }
-    section#award h2, section#votepopup h2 {
+    section#award h2, section#votepopup h2, section#submissionpopup h2 {
       color: #FFFFFF;
       margin-bottom: 2rem;
       letter-spacing: 0;
       font-family: 'Noto Serif HK', 'Microsoft JhengHei', sans-serif;
       font-weight: bold; }
-      section#award h2 span, section#votepopup h2 span {
+      section#award h2 span, section#votepopup h2 span, section#submissionpopup h2 span {
         display: block;
         font-size: 0.52em;
         line-height: 1.35;
         margin-bottom: 0.2em; }
-    section#award #award-details, section#votepopup #award-details {
+    section#award #award-details, section#votepopup #award-details, section#submissionpopup #award-details {
       margin-top: 2rem; }
-      section#award #award-details .award-group, section#votepopup #award-details .award-group {
+      section#award #award-details .award-group, section#votepopup #award-details .award-group, section#submissionpopup #award-details .award-group {
         background: #FFFFFF;
         border-radius: 2.5rem;
         font-family: 'Noto Sans HK','Microsoft JhengHei', sans-serif;
         margin-bottom: 1rem;
         padding: 2rem; }
-        section#award #award-details .award-group-info, section#votepopup #award-details .award-group-info {
+        section#award #award-details .award-group-info, section#votepopup #award-details .award-group-info, section#submissionpopup #award-details .award-group-info {
           padding-right: 2rem;
           margin-bottom: 2em; }
-          section#award #award-details .award-group-info-title, section#votepopup #award-details .award-group-info-title {
+          section#award #award-details .award-group-info-title, section#votepopup #award-details .award-group-info-title, section#submissionpopup #award-details .award-group-info-title {
             font-size: 2.5rem;
             margin-bottom: 1em;
             font-weight: 500; }
-            section#award #award-details .award-group-info-title:before, section#votepopup #award-details .award-group-info-title:before {
+            section#award #award-details .award-group-info-title:before, section#votepopup #award-details .award-group-info-title:before, section#submissionpopup #award-details .award-group-info-title:before {
               content: '';
               display: inline-block;
               width: 1em;
@@ -857,36 +857,36 @@ section {
               background: url(icon-airplane.svg) no-repeat 50% 50%/contain;
               margin-bottom: -0.1em;
               margin-right: 0.3em; }
-          section#award #award-details .award-group-info-topics, section#votepopup #award-details .award-group-info-topics {
+          section#award #award-details .award-group-info-topics, section#votepopup #award-details .award-group-info-topics, section#submissionpopup #award-details .award-group-info-topics {
             color: #CEA66D;
             font-size: 0.9rem; }
-            section#award #award-details .award-group-info-topics span, section#votepopup #award-details .award-group-info-topics span {
+            section#award #award-details .award-group-info-topics span, section#votepopup #award-details .award-group-info-topics span, section#submissionpopup #award-details .award-group-info-topics span {
               font-size: 1.5rem;
               display: block; }
-      section#award #award-details .award-items, section#votepopup #award-details .award-items {
+      section#award #award-details .award-items, section#votepopup #award-details .award-items, section#submissionpopup #award-details .award-items {
         border-left: 1px dotted;
         padding-left: 2rem; }
-      section#award #award-details .award-item, section#votepopup #award-details .award-item {
+      section#award #award-details .award-item, section#votepopup #award-details .award-item, section#submissionpopup #award-details .award-item {
         display: flex;
         font-weight: 500;
         margin-bottom: 0.8em;
         align-items: flex-start; }
-      section#award #award-details .award-place, section#votepopup #award-details .award-place {
+      section#award #award-details .award-place, section#votepopup #award-details .award-place, section#submissionpopup #award-details .award-place {
         font-size: 1.5rem;
         line-height: 1.8;
         font-family: 'Noto Serif HK','Microsoft JhengHei', sans-serif;
         font-weight: bold;
         margin-top: 1em; }
-        section#award #award-details .award-place:first-of-type, section#votepopup #award-details .award-place:first-of-type {
+        section#award #award-details .award-place:first-of-type, section#votepopup #award-details .award-place:first-of-type, section#submissionpopup #award-details .award-place:first-of-type {
           margin-top: 0; }
-        section#award #award-details .award-place.smalltxt, section#votepopup #award-details .award-place.smalltxt {
+        section#award #award-details .award-place.smalltxt, section#votepopup #award-details .award-place.smalltxt, section#submissionpopup #award-details .award-place.smalltxt {
           font-size: 1.15rem; }
-      section#award #award-details .award-schoolname:after, section#votepopup #award-details .award-schoolname:after {
+      section#award #award-details .award-schoolname:after, section#votepopup #award-details .award-schoolname:after, section#submissionpopup #award-details .award-schoolname:after {
         content: ' / ';
         display: inline-block;
         width: 1.5em;
         text-align: center; }
-      section#award #award-details .award-btn, section#votepopup #award-details .award-btn {
+      section#award #award-details .award-btn, section#votepopup #award-details .award-btn, section#submissionpopup #award-details .award-btn {
         background: #152348;
         color: #CEA66D;
         font-weight: bold;
@@ -894,7 +894,7 @@ section {
         border-radius: 500em;
         cursor: pointer;
         margin-right: 0.5em; }
-        section#award #award-details .award-btn:before, section#votepopup #award-details .award-btn:before {
+        section#award #award-details .award-btn:before, section#votepopup #award-details .award-btn:before, section#submissionpopup #award-details .award-btn:before {
           content: '';
           width: 1em;
           height: 1em;
@@ -902,9 +902,9 @@ section {
           margin-right: 0.5em;
           margin-bottom: -0.1em;
           background: url(icon-book.svg) no-repeat 50% 50%/contain; }
-        section#award #award-details .award-btn:hover, section#votepopup #award-details .award-btn:hover {
+        section#award #award-details .award-btn:hover, section#votepopup #award-details .award-btn:hover, section#submissionpopup #award-details .award-btn:hover {
           opacity: 0.7; }
-    section#award #tabsPS, section#votepopup #tabsPS {
+    section#award .tabsPS, section#votepopup .tabsPS, section#submissionpopup .tabsPS {
       background: #F9FAED;
       position: fixed;
       bottom: -10vh;
@@ -936,22 +936,22 @@ section {
       				    left: -2rem;
       				    z-index: 99;
           		}*/ }
-    section#award #tabPrimary, section#award #tabSecondary, section#votepopup #tabPrimary, section#votepopup #tabSecondary {
+    section#award #tabPrimary, section#award #tabSecondary, section#votepopup #tabPrimary, section#votepopup #tabSecondary, section#submissionpopup #tabPrimary, section#submissionpopup #tabSecondary {
       display: none; }
-      section#award #tabPrimary.active, section#award #tabSecondary.active, section#votepopup #tabPrimary.active, section#votepopup #tabSecondary.active {
+      section#award #tabPrimary.active, section#award #tabSecondary.active, section#votepopup #tabPrimary.active, section#votepopup #tabSecondary.active, section#submissionpopup #tabPrimary.active, section#submissionpopup #tabSecondary.active {
         display: block; }
-    section#award #tabPrimaryBtn, section#award #tabSecondaryBtn, section#votepopup #tabPrimaryBtn, section#votepopup #tabSecondaryBtn {
+    section#award #tabPrimaryBtn, section#award #tabSecondaryBtn, section#votepopup #tabPrimaryBtn, section#votepopup #tabSecondaryBtn, section#submissionpopup #tabPrimaryBtn, section#submissionpopup #tabSecondaryBtn {
       cursor: pointer; }
-    section#award .section-intro #vote-intro, section#votepopup .section-intro #vote-intro {
+    section#award .section-intro #vote-intro, section#votepopup .section-intro #vote-intro, section#submissionpopup .section-intro #vote-intro {
       font-size: 0.9rem;
       padding: 1.5rem 3rem 4rem 1rem;
       color: #FFFFFF;
       text-align: left; }
-    section#award .section-intro #vote-rule, section#votepopup .section-intro #vote-rule {
+    section#award .section-intro #vote-rule, section#votepopup .section-intro #vote-rule, section#submissionpopup .section-intro #vote-rule {
       text-align: left;
       font-size: 0.9rem;
       padding: 0 1rem; }
-      section#award .section-intro #vote-rule span, section#votepopup .section-intro #vote-rule span {
+      section#award .section-intro #vote-rule span, section#votepopup .section-intro #vote-rule span, section#submissionpopup .section-intro #vote-rule span {
         display: block;
         color: #FFFFFF;
         line-height: 1;
@@ -961,58 +961,89 @@ section {
         position: relative;
         font-size: 1.3rem;
         border-radius: 1.5rem 1.5rem 0 0; }
-      section#award .section-intro #vote-rule div, section#votepopup .section-intro #vote-rule div {
+      section#award .section-intro #vote-rule div, section#votepopup .section-intro #vote-rule div, section#submissionpopup .section-intro #vote-rule div {
         padding: 1rem 2rem 1.5rem;
         background: #FFFFFF;
         border-radius: 0 0 1.5rem 1.5rem; }
-    section#award .section-intro #vote-period, section#votepopup .section-intro #vote-period {
+    section#award .section-intro #vote-period, section#votepopup .section-intro #vote-period, section#submissionpopup .section-intro #vote-period {
       text-align: center;
       color: #000000;
       display: flex;
       justify-content: center;
       margin: -1em 0 4em 0; }
-      section#award .section-intro #vote-period-title, section#votepopup .section-intro #vote-period-title {
+      section#award .section-intro #vote-period-title, section#votepopup .section-intro #vote-period-title, section#submissionpopup .section-intro #vote-period-title {
         display: inline-block;
         background: #F2EBBC;
         padding: 0.5em 3.5em; }
-      section#award .section-intro #vote-period-date, section#votepopup .section-intro #vote-period-date {
+      section#award .section-intro #vote-period-date, section#votepopup .section-intro #vote-period-date, section#submissionpopup .section-intro #vote-period-date {
         display: inline-block;
         background: #EEE392;
         padding: 0.5em 3.5rem; }
-    section#award .item-body, section#votepopup .item-body {
+    section#award .item-body, section#votepopup .item-body, section#submissionpopup .item-body {
       display: flex;
       gap: 0rem;
       padding-top: 2rem; }
-    section#award .item-group, section#votepopup .item-group {
+    section#award .item-group, section#votepopup .item-group, section#submissionpopup .item-group {
       line-height: 1.4;
       flex-basis: 1em;
       padding: 0 1.6em;
       font-size: 1.5rem;
       font-weight: 600;
       color: #CEA66D; }
-      section#award .item-group span, section#votepopup .item-group span {
+      section#award .item-group span, section#votepopup .item-group span, section#submissionpopup .item-group span {
         display: inline-block;
         text-align: center;
         font-size: 0.7em;
         margin-bottom: 1em; }
-    section#award .item-content, section#votepopup .item-content {
+    section#award .item-content, section#votepopup .item-content, section#submissionpopup .item-content {
       font-size: 0.95rem;
       letter-spacing: 0;
       line-height: 2; }
-      section#award .item-content::-webkit-scrollbar, section#votepopup .item-content::-webkit-scrollbar {
+      section#award .item-content::-webkit-scrollbar, section#votepopup .item-content::-webkit-scrollbar, section#submissionpopup .item-content::-webkit-scrollbar {
         width: 3px; }
-      section#award .item-content::-webkit-scrollbar-track, section#votepopup .item-content::-webkit-scrollbar-track {
+      section#award .item-content::-webkit-scrollbar-track, section#votepopup .item-content::-webkit-scrollbar-track, section#submissionpopup .item-content::-webkit-scrollbar-track {
         background: #CEDAD6; }
-      section#award .item-content::-webkit-scrollbar-thumb, section#votepopup .item-content::-webkit-scrollbar-thumb {
+      section#award .item-content::-webkit-scrollbar-thumb, section#votepopup .item-content::-webkit-scrollbar-thumb, section#submissionpopup .item-content::-webkit-scrollbar-thumb {
         background: #000000; }
-      section#award .item-content::-webkit-scrollbar-thumb:hover, section#votepopup .item-content::-webkit-scrollbar-thumb:hover {
+      section#award .item-content::-webkit-scrollbar-thumb:hover, section#votepopup .item-content::-webkit-scrollbar-thumb:hover, section#submissionpopup .item-content::-webkit-scrollbar-thumb:hover {
         background: #000000; }
-    section#award #tabBtns, section#votepopup #tabBtns {
+    section#award #nextSubmission, section#votepopup #nextSubmission, section#submissionpopup #nextSubmission {
+      font-family: 'Noto Sans HK','Microsoft JhengHei', sans-serif;
+      margin: 0.5em 0 0;
+      font-size: 1rem;
+      color: #FFFFFF;
+      display: inline-block;
+      padding: 0.8em 2.5em;
+      background: #152348;
+      border-radius: 50em;
+      transition: 0.3s background;
+      border: 0; }
+    section#award#submissionpopup .item-content-wrap, section#votepopup#submissionpopup .item-content-wrap, section#submissionpopup#submissionpopup .item-content-wrap {
+      width: calc(100% - 6rem);
+      margin-left: 3rem; }
+    section#award#submissionpopup .item-topic-title, section#votepopup#submissionpopup .item-topic-title, section#submissionpopup#submissionpopup .item-topic-title {
+      font-size: 1.2em;
+      font-weight: 500;
+      color: #CEA66D; }
+    section#award#submissionpopup .filter-buttons, section#votepopup#submissionpopup .filter-buttons, section#submissionpopup#submissionpopup .filter-buttons {
+      margin-top: 1em; }
+      section#award#submissionpopup .filter-buttons button, section#votepopup#submissionpopup .filter-buttons button, section#submissionpopup#submissionpopup .filter-buttons button {
+        display: block;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        padding: 0.2em 1em;
+        margin-bottom: 0.5em; }
+        section#award#submissionpopup .filter-buttons button.active, section#votepopup#submissionpopup .filter-buttons button.active, section#submissionpopup#submissionpopup .filter-buttons button.active {
+          font-weight: bold;
+          background: #bedbf7; }
+    section#award #tabBtns, section#votepopup #tabBtns, section#submissionpopup #tabBtns {
       display: flex;
       margin: 0;
       gap: 2em;
       justify-content: center; }
-    section#award .tabbtn, section#votepopup .tabbtn {
+    section#award .tabbtn, section#votepopup .tabbtn, section#submissionpopup .tabbtn {
       padding: 1.5em 4em 1.5em 4em;
       display: inline-block;
       background: #BAE2D6;
@@ -1021,14 +1052,14 @@ section {
       text-align: center;
       font-size: 1.3rem;
       z-index: 20; }
-      section#award .tabbtn:hover, section#votepopup .tabbtn:hover {
+      section#award .tabbtn:hover, section#votepopup .tabbtn:hover, section#submissionpopup .tabbtn:hover {
         background: #A9D0C4; }
-    section#award .tabcontainer, section#votepopup .tabcontainer {
+    section#award .tabcontainer, section#votepopup .tabcontainer, section#submissionpopup .tabcontainer {
       position: relative;
       border: 0;
       padding: 2.6rem 3rem 1.6rem 3rem;
       z-index: 10; }
-    section#award .item-header, section#votepopup .item-header {
+    section#award .item-header, section#votepopup .item-header, section#submissionpopup .item-header {
       display: flex;
       border-radius: 3rem;
       border-bottom-width: 0;
@@ -1036,8 +1067,8 @@ section {
       border-bottom-left-radius: 0;
       color: #FFFFFF;
       background: #77AADB;
-      background: linear-gradient(180deg, #77aadb 13%, #3969ea 86%); }
-    section#award .item-pageno, section#votepopup .item-pageno {
+      background: linear-gradient(180deg, #3969ea 13%, #77aadb 86%); }
+    section#award .item-pageno, section#votepopup .item-pageno, section#submissionpopup .item-pageno {
       position: absolute;
       right: 2rem;
       top: 1.5rem;
@@ -1046,7 +1077,7 @@ section {
       width: 6rem;
       text-align: right;
       opacity: 0.3; }
-    section#award .item-number, section#votepopup .item-number {
+    section#award .item-number, section#votepopup .item-number, section#submissionpopup .item-number {
       width: 5em;
       height: 7em;
       line-height: 1;
@@ -1057,7 +1088,7 @@ section {
       margin-right: 1em;
       margin-left: calc(0em - 1.8em - 0.5em);
       margin-top: -2.7em; }
-    section#award .item-topic, section#votepopup .item-topic {
+    section#award .item-topic, section#votepopup .item-topic, section#submissionpopup .item-topic {
       font-family: 'Noto Serif HK','Microsoft JhengHei', sans-serif;
       font-size: 1.6rem;
       font-weight: 600;
@@ -1066,7 +1097,7 @@ section {
       width: 100%;
       justify-content: space-between;
       line-height: 1.5; }
-      section#award .item-topic-group-item, section#votepopup .item-topic-group-item {
+      section#award .item-topic-group-item, section#votepopup .item-topic-group-item, section#submissionpopup .item-topic-group-item {
         display: flex;
         align-items: flex-start;
         font-size: 0.8rem;
@@ -1074,7 +1105,7 @@ section {
         line-height: 1.5;
         margin-bottom: 0.8em;
         color: #CEA66D; }
-        section#award .item-topic-group-item:before, section#votepopup .item-topic-group-item:before {
+        section#award .item-topic-group-item:before, section#votepopup .item-topic-group-item:before, section#submissionpopup .item-topic-group-item:before {
           display: inline-block;
           color: #FFFFFF;
           background: #152348;
@@ -1085,15 +1116,15 @@ section {
           margin-right: 0.5em;
           border-radius: 50em;
           min-width: max-content; }
-      section#award .item-topic-topic:before, section#votepopup .item-topic-topic:before {
+      section#award .item-topic-topic:before, section#votepopup .item-topic-topic:before, section#submissionpopup .item-topic-topic:before {
         content: '寫作題目'; }
-      section#award .item-topic-vocab:before, section#votepopup .item-topic-vocab:before {
+      section#award .item-topic-vocab:before, section#votepopup .item-topic-vocab:before, section#submissionpopup .item-topic-vocab:before {
         content: '指定詞語'; }
-      section#award .item-topic-limitation:before, section#votepopup .item-topic-limitation:before {
+      section#award .item-topic-limitation:before, section#votepopup .item-topic-limitation:before, section#submissionpopup .item-topic-limitation:before {
         content: '限制條件'; }
-    section#award .item-author, section#votepopup .item-author {
+    section#award .item-author, section#votepopup .item-author, section#submissionpopup .item-author {
       font-size: 2.2rem; }
-    section#award .item-content, section#votepopup .item-content {
+    section#award .item-content, section#votepopup .item-content, section#submissionpopup .item-content {
       padding-top: 0;
       border-top-width: 0;
       font-size: 0.8rem;
@@ -1104,47 +1135,47 @@ section {
       color: #000;
       font-weight: 400;
       margin-top: 1em; }
-      section#award .item-content-text, section#votepopup .item-content-text {
+      section#award .item-content-text, section#votepopup .item-content-text, section#submissionpopup .item-content-text {
         padding-right: 2rem; }
-      section#award .item-content-wrap, section#votepopup .item-content-wrap {
+      section#award .item-content-wrap, section#votepopup .item-content-wrap, section#submissionpopup .item-content-wrap {
         width: calc(100% - 9rem); }
-    section#award .owl-carousel .owl-nav, section#votepopup .owl-carousel .owl-nav {
+    section#award .owl-carousel .owl-nav, section#votepopup .owl-carousel .owl-nav, section#submissionpopup .owl-carousel .owl-nav {
       width: 6rem;
       left: auto;
       right: 2rem;
       top: 3rem;
       transform: scale(0.8);
       transform-origin: right top; }
-      section#award .owl-carousel .owl-nav button.owl-prev, section#award .owl-carousel .owl-nav button.owl-next, section#award .owl-carousel .owl-nav button.owl-prev:hover, section#award .owl-carousel .owl-nav button.owl-next:hover, section#votepopup .owl-carousel .owl-nav button.owl-prev, section#votepopup .owl-carousel .owl-nav button.owl-next, section#votepopup .owl-carousel .owl-nav button.owl-prev:hover, section#votepopup .owl-carousel .owl-nav button.owl-next:hover {
+      section#award .owl-carousel .owl-nav button.owl-prev, section#award .owl-carousel .owl-nav button.owl-next, section#award .owl-carousel .owl-nav button.owl-prev:hover, section#award .owl-carousel .owl-nav button.owl-next:hover, section#votepopup .owl-carousel .owl-nav button.owl-prev, section#votepopup .owl-carousel .owl-nav button.owl-next, section#votepopup .owl-carousel .owl-nav button.owl-prev:hover, section#votepopup .owl-carousel .owl-nav button.owl-next:hover, section#submissionpopup .owl-carousel .owl-nav button.owl-prev, section#submissionpopup .owl-carousel .owl-nav button.owl-next, section#submissionpopup .owl-carousel .owl-nav button.owl-prev:hover, section#submissionpopup .owl-carousel .owl-nav button.owl-next:hover {
         margin: 0; }
-        section#award .owl-carousel .owl-nav button.owl-prev span, section#award .owl-carousel .owl-nav button.owl-next span, section#award .owl-carousel .owl-nav button.owl-prev:hover span, section#award .owl-carousel .owl-nav button.owl-next:hover span, section#votepopup .owl-carousel .owl-nav button.owl-prev span, section#votepopup .owl-carousel .owl-nav button.owl-next span, section#votepopup .owl-carousel .owl-nav button.owl-prev:hover span, section#votepopup .owl-carousel .owl-nav button.owl-next:hover span {
+        section#award .owl-carousel .owl-nav button.owl-prev span, section#award .owl-carousel .owl-nav button.owl-next span, section#award .owl-carousel .owl-nav button.owl-prev:hover span, section#award .owl-carousel .owl-nav button.owl-next:hover span, section#votepopup .owl-carousel .owl-nav button.owl-prev span, section#votepopup .owl-carousel .owl-nav button.owl-next span, section#votepopup .owl-carousel .owl-nav button.owl-prev:hover span, section#votepopup .owl-carousel .owl-nav button.owl-next:hover span, section#submissionpopup .owl-carousel .owl-nav button.owl-prev span, section#submissionpopup .owl-carousel .owl-nav button.owl-next span, section#submissionpopup .owl-carousel .owl-nav button.owl-prev:hover span, section#submissionpopup .owl-carousel .owl-nav button.owl-next:hover span {
           width: 0.6rem;
           height: 0.6rem;
           margin: 1em; }
-      section#award .owl-carousel .owl-nav button.owl-prev span, section#award .owl-carousel .owl-nav button.owl-prev:hover span, section#votepopup .owl-carousel .owl-nav button.owl-prev span, section#votepopup .owl-carousel .owl-nav button.owl-prev:hover span {
+      section#award .owl-carousel .owl-nav button.owl-prev span, section#award .owl-carousel .owl-nav button.owl-prev:hover span, section#votepopup .owl-carousel .owl-nav button.owl-prev span, section#votepopup .owl-carousel .owl-nav button.owl-prev:hover span, section#submissionpopup .owl-carousel .owl-nav button.owl-prev span, section#submissionpopup .owl-carousel .owl-nav button.owl-prev:hover span {
         margin: 1em; }
-    section#award .owl-carousel .owl-stage-outer, section#votepopup .owl-carousel .owl-stage-outer {
+    section#award .owl-carousel .owl-stage-outer, section#votepopup .owl-carousel .owl-stage-outer, section#submissionpopup .owl-carousel .owl-stage-outer {
       width: calc( 100% + 10px );
       margin-left: -10px; }
-    section#award .item, section#votepopup .item {
+    section#award .item, section#votepopup .item, section#submissionpopup .item {
       width: 100%;
       margin-left: 0px;
       position: relative;
       height: 100%;
       display: none;
       flex-direction: column; }
-      section#award .item.active, section#votepopup .item.active {
+      section#award .item.active, section#votepopup .item.active, section#submissionpopup .item.active {
         display: flex; }
-    section#award .remarks, section#votepopup .remarks {
+    section#award .remarks, section#votepopup .remarks, section#submissionpopup .remarks {
       font-size: 0.7em;
       text-align: center;
       margin-top: 3em; }
-  section#votepopup {
+  section#votepopup, section#submissionpopup, section#overlay {
     z-index: 1000;
     height: 0;
     transition: height 0.5s;
     padding: 0; }
-    section#votepopup .overlay {
+    section#votepopup .overlay, section#submissionpopup .overlay, section#overlay .overlay {
       display: none;
       background: rgba(0, 0, 0, 0.5);
       position: fixed;
@@ -1153,10 +1184,10 @@ section {
       left: 0;
       right: 0;
       cursor: pointer; }
-    body.popup section#votepopup #tabsPS {
+    body.popup section#votepopup.active .tabsPS, body.popup section#submissionpopup.active .tabsPS, body.popup section#overlay.active .tabsPS {
       height: 85vh;
       bottom: 5vh; }
-    body.popup section#votepopup .overlay {
+    body.popup section#votepopup .overlay, body.popup section#submissionpopup .overlay, body.popup section#overlay .overlay {
       display: block; }
   section#VotingForm {
     background: #DDEAD5;
@@ -1692,34 +1723,34 @@ td {
     section#enquiry h2, section#enquiry .h2 {
       text-align: center; }
 
-  section#votepopup .item-topic {
+  section#votepopup .item-topic, section#submissionpopup .item-topic {
     display: block; }
-  section#votepopup .item-topic-quote {
+  section#votepopup .item-topic-quote, section#submissionpopup .item-topic-quote {
     padding-left: 15px;
     padding-right: 15px;
     margin-top: 1em;
     margin-bottom: 4em;
     float: none; }
-    section#votepopup .item-topic-quote-details {
+    section#votepopup .item-topic-quote-details, section#submissionpopup .item-topic-quote-details {
       margin-top: 0;
       padding-right: 1em; }
-  section#votepopup .item-body {
+  section#votepopup .item-body, section#submissionpopup .item-body {
     padding-right: 0rem;
     flex: 1;
     overflow: hidden;
     margin-bottom: 2rem; }
-  section#votepopup .item-content-wrap {
+  section#votepopup .item-content-wrap, section#submissionpopup .item-content-wrap {
     overflow-y: auto;
     overflow-x: hidden; }
-    section#votepopup .item-content-wrap::-webkit-scrollbar {
+    section#votepopup .item-content-wrap::-webkit-scrollbar, section#submissionpopup .item-content-wrap::-webkit-scrollbar {
       width: 3px; }
-    section#votepopup .item-content-wrap::-webkit-scrollbar-track {
+    section#votepopup .item-content-wrap::-webkit-scrollbar-track, section#submissionpopup .item-content-wrap::-webkit-scrollbar-track {
       background: #CEDAD6; }
-    section#votepopup .item-content-wrap::-webkit-scrollbar-thumb {
+    section#votepopup .item-content-wrap::-webkit-scrollbar-thumb, section#submissionpopup .item-content-wrap::-webkit-scrollbar-thumb {
       background: #000000; }
-    section#votepopup .item-content-wrap::-webkit-scrollbar-thumb:hover {
+    section#votepopup .item-content-wrap::-webkit-scrollbar-thumb:hover, section#submissionpopup .item-content-wrap::-webkit-scrollbar-thumb:hover {
       background: #000000; }
-  section#votepopup .item-content {
+  section#votepopup .item-content, section#submissionpopup .item-content {
     height: auto; } }
 @media (max-width: 767px) {
   h1, .h1 {
@@ -1848,23 +1879,26 @@ td {
     width: calc(100% + 4rem);
     left: -2rem; }
 
-  section#votepopup #tabsPS:after {
+  section#votepopup .tabsPS:after, section#submissionpopup .tabsPS:after {
     width: 8rem;
     height: 8rem;
     left: -3rem;
     top: -1rem; }
-  section#votepopup .item-header {
+  section#votepopup .item-header, section#submissionpopup .item-header {
     padding-left: calc(1rem + 6rem - 2vw); }
-  section#votepopup .item-body {
+  section#votepopup .item-body, section#submissionpopup .item-body {
     gap: 1rem;
     /*padding-right: 2rem;*/ }
-  section#votepopup .item-group {
+  section#votepopup .item-group, section#submissionpopup .item-group {
     padding-left: 1.2em;
     padding-right: 1.2em; }
-  section#votepopup .item-author {
+  section#votepopup .item-author, section#submissionpopup .item-author {
     font-size: 2rem; }
-  section#votepopup .item-topic {
+  section#votepopup .item-topic, section#submissionpopup .item-topic {
     font-size: 1.2rem; }
+
+  section#submissionpopup .item-header {
+    padding-left: calc(1rem + 3rem - 2vw); }
 
   section#enquiry h2 {
     border: 0;
@@ -1939,12 +1973,12 @@ td {
     section#award .section-intro #vote-rule span {
       padding: 1.2rem 2rem; }
 
-  section#votepopup .item-body {
+  section#votepopup .item-body, section#submissionpopup .item-body {
     padding-right: 2rem;
     gap: 1rem; }
-  section#votepopup .item-topic {
+  section#votepopup .item-topic, section#submissionpopup .item-topic {
     font-size: 1.3rem; }
-  section#votepopup .item-author {
+  section#votepopup .item-author, section#submissionpopup .item-author {
     font-size: 2rem; } }
 @media (max-width: 550px) {
   section#landing .img-layers {
@@ -1962,14 +1996,14 @@ td {
   section#landing .img-layers {
     margin-top: -4rem; } }
 @media (max-width: 400px) {
-  section#votepopup .item-group {
+  section#votepopup .item-group, section#submissionpopup .item-group {
     line-height: 1.3;
     font-size: 1.3rem; }
-  section#votepopup .item-author {
+  section#votepopup .item-author, section#submissionpopup .item-author {
     font-size: 1.8rem; }
-  section#votepopup .item-topic {
+  section#votepopup .item-topic, section#submissionpopup .item-topic {
     font-size: 1.1rem; }
-  section#votepopup .item-header {
+  section#votepopup .item-header, section#submissionpopup .item-header {
     padding-top: 2rem; }
-  section#votepopup .item-body {
+  section#votepopup .item-body, section#submissionpopup .item-body {
     padding-right: 1rem; } }

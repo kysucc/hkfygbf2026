@@ -1142,7 +1142,6 @@ section{
 			.item-content-wrap {
 			    width: calc(100% - 6rem);
 			    margin-left: 3rem;
-			    white-space: pre-wrap;
 			}
 			.item-topic-title{
 				font-size: 1.2em;
@@ -1151,6 +1150,7 @@ section{
 			}
 			.item-topic-location{content:'旅行的地方';}
 			.item-topic-topic{content:'題目';}
+			.item-content{white-space: pre-wrap;}
 			.filter-buttons{
 				margin-top:1em;
 				button{

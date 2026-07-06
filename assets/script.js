@@ -424,7 +424,7 @@ function showRandomSubmission() {
         
         <div class="item-topic-location item-topic-group-item">${selected.location}</div>
         <div class="item-topic-topic item-topic-group-item">${selected.topic}</div>
-        ${selected.content}
+        <div class="item-content">${selected.content}</div>
 
     `).fadeIn(300); 
 }

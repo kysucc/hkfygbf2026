@@ -311,7 +311,7 @@ let currentFilter = "全部";
 let lastDisplayedSubmission = null; // Tracks the current active card to prevent repeats
 
 // TASK 1: FETCH DATA & PRE-SORT & SHOW COUNTS
-ffunction initDatabase() {
+function initDatabase() {
     $.ajax({
         url: CSV_URL,
         method: "GET",

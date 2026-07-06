@@ -188,6 +188,10 @@ jQuery(document).ready(function ($){
                     return false;
                 }
             }
+
+            const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfOftnBH9KBpcaRaQLOokzvuTUsfr9rFRO_q348SelTbG1i0w/formResponse?&callback=googleDocCallback";
+            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQV10NzWQim63QXQVv4hPFKFcc8lD_9aOYRzEgel20H1PpuVP6lR2hLFRvpK4dJrWBUu6PZQvGiJZL/gviz/tq?tqx=out:csv";
+
             $('#InstantWritingSubmit').click(function(e){
                 var iwstatus = true;
                 var iwtopic1 = $('#iwtopic1').val();
@@ -210,7 +214,7 @@ jQuery(document).ready(function ($){
                 if(iwstatus){
                     window.googleDocCallback = function () { return true; }
                     $.ajax({
-                        url: "https://docs.google.com/forms/d/e/1FAIpQLSfOftnBH9KBpcaRaQLOokzvuTUsfr9rFRO_q348SelTbG1i0w/formResponse?&callback=googleDocCallback",
+                        url: FORM_URL,
                         crossDomain: true,
                         data: {
                             "entry.1237223835": iwtopic1,
@@ -238,6 +242,50 @@ jQuery(document).ready(function ($){
                     });
                 }
             });
+
+            async function loadRandomSubmission() {
+                console.log('loadfunction');
+                const displayDiv = document.getElementById('randomDisplay');
+
+                try {
+                    // Fetching the public CSV version is highly optimized and rarely blocked
+                    const response = await fetch(CSV_URL);
+                    if (!response.ok) throw new Error("Could not fetch database.");
+
+                    const csvText = await response.text();
+                    
+                    // Convert CSV text lines into an array
+                    const rows = csvText.split("\n").map(row => row.split(","));
+                    
+                    // rows[0] is headers (Timestamp, Name, Message). 
+                    // Real submissions start at row index 1.
+                    if (rows.length <= 1 || rows[1][0].trim() === "") {
+                        displayDiv.innerHTML = "<p>No submissions yet! Be the first.</p>";
+                        return;
+                    }
+
+                    // Pick a random index between 1 and the last row
+                    const randomIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
+                    const randomRow = rows[randomIndex];
+
+                    // Assuming your column sequence is: [0]Timestamp, [1]Name, [2]Message
+                    const submitterName = randomRow[1] || "Anonymous";
+                    const submitterMessage = randomRow[2] || "";
+
+                    // Display it beautifully on your HTML page
+                    displayDiv.innerHTML = `
+                        <div class="card" style="border: 1px solid #ccc; padding: 15px; border-radius: 5px;">
+                            <p><strong>"${submitterMessage.trim()}"</strong></p>
+                            <small>— Posted by ${submitterName.trim()}</small>
+                        </div>
+                    `;
+
+                } catch (error) {
+                    console.error("Error reading database:", error);
+                    displayDiv.innerHTML = "<p style='color:red;'>Failed to load dynamic submissions.</p>";
+                }
+            }
+            loadRandomSubmission();
 
 
 

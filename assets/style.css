@@ -1029,7 +1029,7 @@ section {
       content: '旅行的地方'; }
     section#award#submissionpopup .item-topic-topic, section#votepopup#submissionpopup .item-topic-topic, section#submissionpopup#submissionpopup .item-topic-topic {
       content: '題目'; }
-    section#award#submissionpopup .item-content, section#votepopup#submissionpopup .item-content, section#submissionpopup#submissionpopup .item-content {
+    section#award#submissionpopup .item-content-content, section#votepopup#submissionpopup .item-content-content, section#submissionpopup#submissionpopup .item-content-content {
       white-space: pre-wrap; }
     section#award#submissionpopup .filter-buttons, section#votepopup#submissionpopup .filter-buttons, section#submissionpopup#submissionpopup .filter-buttons {
       margin-top: 1em; }

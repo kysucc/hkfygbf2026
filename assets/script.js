@@ -136,14 +136,23 @@ jQuery(document).ready(function ($){
                     var currentTab = $(this).data('tab');
                     var currentGroup = $(this).data('group');
                         $('.tabitem,.award-btn').removeClass('active');
-                        $('#tabItem'+currentTab).addClass('active');
+                        $('#votepopup,#tabItem'+currentTab).addClass('active');
                         $(this).addClass('active');
                         $('body,html').addClass('popup');
                         $('#nav-toggle-btn').addClass('open');
                     });
             });
 
-            $(' #votepopup .overlay').click(function(){
+            $("#InstantWritingView").click(function(){
+                $('#submissionpopup,#Submissions').addClass('active');
+                $('body,html').addClass('popup');
+                $('#nav-toggle-btn').addClass('open');
+            });
+
+            
+
+            $(' #votepopup .overlay, #submissionpopup .overlay,#overlay .overlay').click(function(){
+                $('#votepopup,#submissionpopup').removeClass('active');
                 $('body,html').removeClass('popup');
                 $('#nav-toggle-btn').removeClass('open');
             });
@@ -301,9 +310,7 @@ let databaseByTopic = {
 let currentFilter = "全部";
 let lastDisplayedSubmission = null; // Tracks the current active card to prevent repeats
 
-// ==========================================
 // TASK 1: FETCH DATA & PRE-SORT & SHOW COUNTS
-// ==========================================
 function initDatabase() {
     $.ajax({
         url: CSV_URL,
@@ -343,14 +350,12 @@ function initDatabase() {
         },
         error: function(xhr, status, error) {
             console.error("Database Error:", error);
-            $('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
+            //$('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
         }
     });
 }
 
-// ==========================================
 // HELPER: UPDATE BUTTON TEXTS WITH TOTALS
-// ==========================================
 function updateFilterButtonCounts() {
     $('[data-filter="全部"]').text(`全部 (${allSubmissions.length})`);
     $('[data-filter="倒楣時刻"]').text(`倒楣時刻 (${databaseByTopic["倒楣時刻"].length})`);
@@ -359,14 +364,12 @@ function updateFilterButtonCounts() {
     $('[data-filter="難忘風景"]').text(`難忘風景 (${databaseByTopic["難忘風景"].length})`);
 }
 
-// ==========================================
-// TASK 2: PICK A *NEW* RANDOM SUBMISSION
-// ==========================================
+// PICK A *NEW* RANDOM SUBMISSION
 function showRandomSubmission() {
     let currentPool = (currentFilter === "全部") ? allSubmissions : databaseByTopic[currentFilter];
 
     if ($('#SubmissionContent').length === 0) {
-        $('#Submissions').append('<div id="SubmissionContent"></div>');
+        $('#SubmissionItem').append('<div id="SubmissionContent"></div>');
     }
 
     const $displayZone = $('#SubmissionContent');
@@ -382,7 +385,6 @@ function showRandomSubmission() {
 
     let selected = null;
 
-    // IF there's more than 1 item in the pool, filter out the one currently displayed
     if (currentPool.length > 1 && lastDisplayedSubmission !== null) {
         let uniquePool = currentPool.filter(item => item.id !== lastDisplayedSubmission.id);
         const randomIndex = Math.floor(Math.random() * uniquePool.length);
@@ -393,46 +395,34 @@ function showRandomSubmission() {
         selected = currentPool[randomIndex];
     }
 
-    // Save this choice to block it on the next click execution
     lastDisplayedSubmission = selected;
 
-    // Smoothly transition and update the viewport text
     $displayZone.hide().html(`
-        <div class="submission-card" style="margin-top: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff;">
-            <div style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
-                <span class="badge-topic" style="background: #007bff; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
-                    ${selected.topic}
-                </span>
-                <span class="badge-location" style="color: #555; font-size: 14px; font-weight: bold;">
-                    📍 ${selected.location}
-                </span>
-            </div>
-            <p class="submission-text" style="font-size: 16px; line-height: 1.6; color: #333; margin: 0;">
-                ${selected.content}
-            </p>
-        </div>
+        
+        <div class="item-topic-location item-topic-group-item">${selected.location}</div>
+        <div class="item-topic-topic item-topic-group-item">${selected.topic}</div>
+        ${selected.content}
+
     `).fadeIn(300); 
 }
 
-// ==========================================
-// TASK 3: BIND EVENTS
-// ==========================================
-$(document).ready(function() {
+// BIND EVENTS
+
     initDatabase();
 
-    $('#ViewSubmissions').on('click', function() {
+    $('#ViewSubmissions, #InstantWritingView, #nextSubmission').on('click', function() {
         showRandomSubmission();
     });
 
     $('#Submissions').on('click', 'button[data-filter]', function() {
         currentFilter = $(this).attr('data-filter');
         
-        $('#Submissions button[data-filter]').css('font-weight', 'normal');
-        $(this).css('font-weight', 'bold');
+        $('#Submissions button[data-filter]').removeClass('active');
+        $(this).addClass('active');
 
         showRandomSubmission();
     });
-});
+
 
 
 

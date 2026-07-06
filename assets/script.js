@@ -311,29 +311,38 @@ let currentFilter = "全部";
 let lastDisplayedSubmission = null; // Tracks the current active card to prevent repeats
 
 // TASK 1: FETCH DATA & PRE-SORT & SHOW COUNTS
-function initDatabase() {
+ffunction initDatabase() {
     $.ajax({
         url: CSV_URL,
         method: "GET",
         dataType: "text",
         success: function(csvText) {
-            const rows = csvText.split(/\r?\n/).map(row => row.split(","));
-
             allSubmissions = [];
             databaseByTopic = { "倒楣時刻": [], "特別手信": [], "念念不忘": [], "難忘風景": [] };
 
-            for (let i = 1; i < rows.length; i++) {
-                const row = rows[i];
-                if (!row[0] || row[0].trim() === "") continue;
+            // 1. SAFE SPLIT: This regex splits rows ONLY when the newline is at the end of a line,
+            // ignoring newlines inside quotes (multi-line contents).
+            const rows = csvText.split(/\r?\n(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
+            for (let i = 1; i < rows.length; i++) {
+                const rowText = rows[i];
+                if (!rowText || rowText.trim() === "") continue;
+
+                // 2. SAFE COLUMN SPLIT: Splits by comma, but ignores commas inside quotes
+                const row = rowText.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+
+                // Helper to strip Google CSV wrapper quotes and keep multi-line breaks intact
                 const clean = (val) => val ? val.replace(/^"|"$/g, "").trim() : "";
 
                 const submission = {
-                    id: i, // Give each submission a unique ID to track and prevent duplicates
+                    id: i, 
                     location: clean(row[1]), 
                     topic: clean(row[2]),    
                     content: clean(row[3])   
                 };
+
+                // Prevent pushing if content is completely empty
+                if (!submission.content) continue;
 
                 allSubmissions.push(submission);
 
@@ -342,15 +351,12 @@ function initDatabase() {
                 }
             }
 
-            // Update the button labels with their live item counts
             updateFilterButtonCounts();
-            
-            // Show the initial item
             showRandomSubmission();
         },
         error: function(xhr, status, error) {
             console.error("Database Error:", error);
-            //$('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
+            $('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
         }
     });
 }
@@ -396,6 +402,23 @@ function showRandomSubmission() {
     }
 
     lastDisplayedSubmission = selected;
+
+    let selected_topic = selected.topic
+
+    switch(selected.topic){
+        case '倒楣時刻':
+            selected_topic+='：請分享旅程中一段糟糕或崩潰的瞬間，後來你是如何化解，抑或是釋懷？';
+            break;
+        case '特別手信':
+            selected_topic+='：請分享旅行時購買過「最特別」的一份手信（伴手禮）。';
+            break;
+        case '念念不忘':
+            selected_topic+='：請分享在旅程中最令你想念的味道或店舖。';
+            break;
+        case '難忘風景':
+            selected_topic+='：請分享旅程中那個令你印象深刻的畫面（關於風景、人、交通工具等）。';
+            break;
+    }
 
     $displayZone.hide().html(`
         

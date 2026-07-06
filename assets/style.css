@@ -1020,11 +1020,16 @@ section {
       border: 0; }
     section#award#submissionpopup .item-content-wrap, section#votepopup#submissionpopup .item-content-wrap, section#submissionpopup#submissionpopup .item-content-wrap {
       width: calc(100% - 6rem);
-      margin-left: 3rem; }
+      margin-left: 3rem;
+      white-space: pre-wrap; }
     section#award#submissionpopup .item-topic-title, section#votepopup#submissionpopup .item-topic-title, section#submissionpopup#submissionpopup .item-topic-title {
       font-size: 1.2em;
       font-weight: 500;
       color: #CEA66D; }
+    section#award#submissionpopup .item-topic-location, section#votepopup#submissionpopup .item-topic-location, section#submissionpopup#submissionpopup .item-topic-location {
+      content: '旅行的地方'; }
+    section#award#submissionpopup .item-topic-topic, section#votepopup#submissionpopup .item-topic-topic, section#submissionpopup#submissionpopup .item-topic-topic {
+      content: '題目'; }
     section#award#submissionpopup .filter-buttons, section#votepopup#submissionpopup .filter-buttons, section#submissionpopup#submissionpopup .filter-buttons {
       margin-top: 1em; }
       section#award#submissionpopup .filter-buttons button, section#votepopup#submissionpopup .filter-buttons button, section#submissionpopup#submissionpopup .filter-buttons button {

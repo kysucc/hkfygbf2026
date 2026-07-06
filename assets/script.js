@@ -289,7 +289,7 @@ jQuery(document).ready(function ($){
 
 */
 
-            // Storage pools for our filtered submissions
+// Storage pools for our filtered submissions
 let allSubmissions = [];
 let databaseByTopic = {
     "倒楣時刻": [],
@@ -298,11 +298,11 @@ let databaseByTopic = {
     "難忘風景": []
 };
 
-// Tracks which filter the user currently has selected (Defaults to "全部")
 let currentFilter = "全部";
+let lastDisplayedSubmission = null; // Tracks the current active card to prevent repeats
 
 // ==========================================
-// TASK 1: FETCH DATA & PRE-SORT BY TOPIC (jQuery AJAX)
+// TASK 1: FETCH DATA & PRE-SORT & SHOW COUNTS
 // ==========================================
 function initDatabase() {
     $.ajax({
@@ -310,25 +310,22 @@ function initDatabase() {
         method: "GET",
         dataType: "text",
         success: function(csvText) {
-            // Split CSV into rows cleanly
             const rows = csvText.split(/\r?\n/).map(row => row.split(","));
 
-            // Clear arrays on init
             allSubmissions = [];
             databaseByTopic = { "倒楣時刻": [], "特別手信": [], "念念不忘": [], "難忘風景": [] };
 
-            // Loop rows (Skip header row at index 0)
             for (let i = 1; i < rows.length; i++) {
                 const row = rows[i];
-                if (!row[0] || row[0].trim() === "") continue; // Skip blank lines
+                if (!row[0] || row[0].trim() === "") continue;
 
-                // Helper to strip Google CSV wrapper quotes safely
                 const clean = (val) => val ? val.replace(/^"|"$/g, "").trim() : "";
 
                 const submission = {
-                    location: clean(row[1]), // 旅行的地方
-                    topic: clean(row[2]),    // 題目
-                    content: clean(row[3])   // 內容
+                    id: i, // Give each submission a unique ID to track and prevent duplicates
+                    location: clean(row[1]), 
+                    topic: clean(row[2]),    
+                    content: clean(row[3])   
                 };
 
                 allSubmissions.push(submission);
@@ -338,9 +335,10 @@ function initDatabase() {
                 }
             }
 
-            console.log(`Successfully loaded ${allSubmissions.length} submissions.`);
+            // Update the button labels with their live item counts
+            updateFilterButtonCounts();
             
-            // Show an initial random item on launch
+            // Show the initial item
             showRandomSubmission();
         },
         error: function(xhr, status, error) {
@@ -351,33 +349,54 @@ function initDatabase() {
 }
 
 // ==========================================
-// TASK 2: PICK AND RENDER A RANDOM SUBMISSION
+// HELPER: UPDATE BUTTON TEXTS WITH TOTALS
+// ==========================================
+function updateFilterButtonCounts() {
+    $('[data-filter="全部"]').text(`全部 (${allSubmissions.length})`);
+    $('[data-filter="倒楣時刻"]').text(`倒楣時刻 (${databaseByTopic["倒楣時刻"].length})`);
+    $('[data-filter="特別手信"]').text(`特別手信 (${databaseByTopic["特別手信"].length})`);
+    $('[data-filter="念念不忘"]').text(`念念不忘 (${databaseByTopic["念念不忘"].length})`);
+    $('[data-filter="難忘風景"]').text(`難忘風景 (${databaseByTopic["難忘風景"].length})`);
+}
+
+// ==========================================
+// TASK 2: PICK A *NEW* RANDOM SUBMISSION
 // ==========================================
 function showRandomSubmission() {
-    // Determine the active data pool
     let currentPool = (currentFilter === "全部") ? allSubmissions : databaseByTopic[currentFilter];
 
-    // Ensure our #SubmissionContent placeholder exists inside #Submissions container
     if ($('#SubmissionContent').length === 0) {
         $('#Submissions').append('<div id="SubmissionContent"></div>');
     }
 
     const $displayZone = $('#SubmissionContent');
 
-    // Handle empty state
     if (!currentPool || currentPool.length === 0) {
         $displayZone.html(`
             <div class="no-data" style="margin-top:20px; color:#777; font-style:italic;">
                 暫時沒有關於「${currentFilter}」的投稿。
             </div>`);
+        lastDisplayedSubmission = null; // Clear tracking
         return;
     }
 
-    // Pick random item
-    const randomIndex = Math.floor(Math.random() * currentPool.length);
-    const selected = currentPool[randomIndex];
+    let selected = null;
 
-    // Fade out old content and fade in new content smoothly using jQuery effects
+    // IF there's more than 1 item in the pool, filter out the one currently displayed
+    if (currentPool.length > 1 && lastDisplayedSubmission !== null) {
+        let uniquePool = currentPool.filter(item => item.id !== lastDisplayedSubmission.id);
+        const randomIndex = Math.floor(Math.random() * uniquePool.length);
+        selected = uniquePool[randomIndex];
+    } else {
+        // Fallback if there is only 1 item in total for this topic
+        const randomIndex = Math.floor(Math.random() * currentPool.length);
+        selected = currentPool[randomIndex];
+    }
+
+    // Save this choice to block it on the next click execution
+    lastDisplayedSubmission = selected;
+
+    // Smoothly transition and update the viewport text
     $displayZone.hide().html(`
         <div class="submission-card" style="margin-top: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff;">
             <div style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
@@ -396,26 +415,21 @@ function showRandomSubmission() {
 }
 
 // ==========================================
-// TASK 3: BIND THE EVENT LISTENERS (jQuery DOM Ready)
+// TASK 3: BIND EVENTS
 // ==========================================
 $(document).ready(function() {
-    // Start data connection load
     initDatabase();
 
-    // Random shuffle trigger via main button
     $('#ViewSubmissions').on('click', function() {
         showRandomSubmission();
     });
 
-    // Filtering tabs inside #Submissions
-    $('#Submissions button[data-filter]').on('click', function() {
+    $('#Submissions').on('click', 'button[data-filter]', function() {
         currentFilter = $(this).attr('data-filter');
         
-        // Reset styles and highlight the selected button using jQuery chaining
         $('#Submissions button[data-filter]').css('font-weight', 'normal');
         $(this).css('font-weight', 'bold');
 
-        // Draw fresh matching submission instantly
         showRandomSubmission();
     });
 });

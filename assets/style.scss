@@ -1897,6 +1897,13 @@ section#booksrecommend #book-details {
 			    height:auto;
 		}
 	}
+	section#submissionpopup{
+
+		.filter-buttons {
+			margin-top: 0; border-bottom: 1px dotted; padding-bottom: 1em; margin-bottom: 2em;
+			button{    display: inline-block;width: auto;}
+		}
+	}
 }
 	
 @media(max-width: 767px){
@@ -2006,19 +2013,21 @@ section#booksrecommend #book-details {
 
 	section#votepopup, section#submissionpopup{
 		.tabsPS:after {width: 8rem; height: 8rem; left: -3rem; top: -1rem;}
-		.item-header{padding-left: calc(1rem + 6rem - 2vw);}
-		.item-body{gap:1rem;/*padding-right: 2rem;*/}
+		.item-header{padding-left: calc(1rem + 3rem - 2vw);}
+		.item-body{gap:1rem;padding-right: 0rem;}
 		.item-group{padding-left: 1.2em; padding-right: 1.2em;}
 		.item-author{font-size: 2rem;}
 		.item-topic{font-size: 1.2rem;}
+		.item-content-wrap {width: calc(100% - 8rem);}
 		//.item-topic-quote-details {padding-right: 1em;}
 	}
 	section#submissionpopup{
-		.item-header{padding-left: calc(1rem + 3rem - 2vw);}
-		.filter-buttons {
+
+		.item-content-wrap{    width: calc(100% - 6rem);}
+		/*.filter-buttons {
 			margin-top: 0; border-bottom: 1px dotted; padding-bottom: 1em; margin-bottom: 2em;
 			button{    display: inline-block;width: auto;}
-		}
+		}*/
 	}
 	section#enquiry{
 		h2{border: 0;width:100%;margin-bottom: 0;}
@@ -2115,7 +2124,7 @@ section#booksrecommend #book-details {
 	}
 	section#votepopup ,section#submissionpopup{
 		.item-body {
-        padding-right: 2rem;
+        padding-right: 0rem;
         gap:1rem;
     }
     .item-topic {font-size: 1.3rem;}

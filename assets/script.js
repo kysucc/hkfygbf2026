@@ -447,11 +447,84 @@ function showRandomSubmission() {
     });
 
 
+function renderSubmissions() {
+    let itemsContainer = $('#cw_items'); 
+    itemsContainer.empty(); // 清空舊內容
+
+   
+    submissionsData.forEach(function(item, index) {
+        
+        let isActive = (index === 0) ? "active" : "";
+
+        let topicDiv = item.topic ? `<div class="item-topic-topic item-topic-group-item">${item.topic}</div>` : "";
+        let vocabDiv = item.vocab ? `<div class="item-topic-vocab item-topic-group-item">${item.vocab}</div>` : "";
+        let limitDiv = item.limit ? `<div class="item-topic-limitation item-topic-group-item">${item.limit}</div>` : "";
+
+        let htmlSnippet = `
+            <div id="tabItem${item.tabNumber}" class="tabitem item ${isActive}">
+                <div class="item-header tabcontainer">
+                    <div class="item-topic">                              
+                        <div class="item-author">${item.team}</div>
+                        <div class="item-school">${item.school}</div>
+                    </div>
+                </div>
+                <div class="item-body">
+                    <div class="item-group"><span>${item.group}</span></div>
+                    <div class="item-content-wrap">
+                        <div class="row">
+                            <div class="item-topic-group col-md-4">
+                                ${topicDiv}
+                                ${vocabDiv}
+                                ${limitDiv}
+                            </div>
+                            <div class="item-content col-md-8">
+                                <div class="row">
+                                    <div class="col-xs-12 item-content-text">
+                                        ${item.content}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end tabitem-->
+        `;
+
+        itemsContainer.append(htmlSnippet);
+    });
+}
+renderSubmissions();
 
 
-
-
-
+/*
+ <div id="tabItem{$NUMBER}" class="tabitem item active">
+                    <div class="item-header tabcontainer">
+                        <div class="item-topic">                              
+                            <div class="item-author">{$TEAMNAME}</div>
+                            <div class="item-school">{$SCHOOLNAME}</div>
+                        </div>
+                    </div>
+                    <div class="item-body">
+                        <div class="item-group"><span>{$CWGROUP}</span>{$CWPRICE}</div>
+                        <div class="item-content-wrap">
+                            <div class="row">
+                                <div class="item-topic-group col-md-4">
+                                    <div class="item-topic-topic item-topic-group-item">{$TOPIC_TOPIC}</div>
+                                    <div class="item-topic-vocab item-topic-group-item">{$TOPIC_VOCAB}</div>
+                                    <div class="item-topic-limitation item-topic-group-item">{$TOPIC_LIMITATION}</div>
+                                </div>
+                            <div class="item-content col-md-8">
+                                <div class="row">
+                                    <div class="col-xs-12 item-content-text">
+                                        {$CWCONTENT}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--end tabitem-->
+*/
 
 
 

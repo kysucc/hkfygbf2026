@@ -1757,7 +1757,16 @@ td {
     section#votepopup .item-content-wrap::-webkit-scrollbar-thumb:hover, section#submissionpopup .item-content-wrap::-webkit-scrollbar-thumb:hover {
       background: #000000; }
   section#votepopup .item-content, section#submissionpopup .item-content {
-    height: auto; } }
+    height: auto; }
+
+  section#submissionpopup .filter-buttons {
+    margin-top: 0;
+    border-bottom: 1px dotted;
+    padding-bottom: 1em;
+    margin-bottom: 2em; }
+    section#submissionpopup .filter-buttons button {
+      display: inline-block;
+      width: auto; } }
 @media (max-width: 767px) {
   h1, .h1 {
     font-size: calc(2.5rem + 2vw); }
@@ -1891,10 +1900,10 @@ td {
     left: -3rem;
     top: -1rem; }
   section#votepopup .item-header, section#submissionpopup .item-header {
-    padding-left: calc(1rem + 6rem - 2vw); }
+    padding-left: calc(1rem + 3rem - 2vw); }
   section#votepopup .item-body, section#submissionpopup .item-body {
     gap: 1rem;
-    /*padding-right: 2rem;*/ }
+    padding-right: 0rem; }
   section#votepopup .item-group, section#submissionpopup .item-group {
     padding-left: 1.2em;
     padding-right: 1.2em; }
@@ -1902,17 +1911,16 @@ td {
     font-size: 2rem; }
   section#votepopup .item-topic, section#submissionpopup .item-topic {
     font-size: 1.2rem; }
+  section#votepopup .item-content-wrap, section#submissionpopup .item-content-wrap {
+    width: calc(100% - 8rem); }
 
-  section#submissionpopup .item-header {
-    padding-left: calc(1rem + 3rem - 2vw); }
-  section#submissionpopup .filter-buttons {
-    margin-top: 0;
-    border-bottom: 1px dotted;
-    padding-bottom: 1em;
-    margin-bottom: 2em; }
-    section#submissionpopup .filter-buttons button {
-      display: inline-block;
-      width: auto; }
+  section#submissionpopup {
+    /*.filter-buttons {
+    	margin-top: 0; border-bottom: 1px dotted; padding-bottom: 1em; margin-bottom: 2em;
+    	button{    display: inline-block;width: auto;}
+    }*/ }
+    section#submissionpopup .item-content-wrap {
+      width: calc(100% - 6rem); }
 
   section#enquiry h2 {
     border: 0;
@@ -1988,7 +1996,7 @@ td {
       padding: 1.2rem 2rem; }
 
   section#votepopup .item-body, section#submissionpopup .item-body {
-    padding-right: 2rem;
+    padding-right: 0rem;
     gap: 1rem; }
   section#votepopup .item-topic, section#submissionpopup .item-topic {
     font-size: 1.3rem; }

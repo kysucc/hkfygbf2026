@@ -423,8 +423,8 @@ function showRandomSubmission() {
     $displayZone.hide().html(`
         
         <div class="item-topic-location item-topic-group-item">${selected.location}</div>
-        <div class="item-topic-topic item-topic-group-item">${selected.topic}</div>
-        <div class="item-content">${selected.content}</div>
+        <div class="item-topic-topic item-topic-group-item">${selected_topic}</div>
+        <div class="item-content-content">${selected.content}</div>
 
     `).fadeIn(300); 
 }

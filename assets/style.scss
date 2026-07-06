@@ -1138,36 +1138,7 @@ section{
 		    transition: 0.3s background;
 		    border: 0;
 		}
-		&#submissionpopup{
-			.item-content-wrap {
-			    width: calc(100% - 6rem);
-			    margin-left: 3rem;
-			}
-			.item-topic-title{
-				font-size: 1.2em;
-				font-weight: 500;
-				color:$color-theme-gold;
-			}
-			.item-topic-location:before{content:'旅行的地方';}
-			.item-topic-topic:before{content:'題目';}
-			.item-content-content{white-space: pre-wrap;}
-			.filter-buttons{
-				margin-top:1em;
-				button{
-					display: block;
-					width: 100%;
-					border:0;
-					background:transparent;
-					text-align: left;
-					padding: 0.2em 1em;
-	    		margin-bottom: 0.5em;
-					&.active{
-						font-weight: bold;
-						background: #bedbf7;
-					}
-				}
-			}
-}
+
 		#tabBtns{
 			display:flex;
 			margin:0;
@@ -1327,6 +1298,36 @@ section{
 		    	margin-top: 3em;
 		    }
 	}
+			&#submissionpopup{
+			.item-content-wrap {
+			    width: calc(100% - 6rem);
+			    margin-left: 3rem;
+			}
+			.item-topic-title{
+				font-size: 1.2em;
+				font-weight: 500;
+				color:$color-theme-gold;
+			}
+			.item-topic-location:before{content:'旅行的地方';}
+			.item-topic-topic:before{content:'題目';}
+			.item-content-content{white-space: pre-wrap;}
+			.filter-buttons{
+				margin-top:1em;
+				button{
+					display: block;
+					width: 100%;
+					border:0;
+					background:transparent;
+					text-align: left;
+					padding: 0.2em 1em;
+	    		margin-bottom: 0.5em;
+					&.active{
+						font-weight: bold;
+						background: #bedbf7;
+					}
+				}
+			}
+}
 	&#votepopup, &#submissionpopup,&#overlay{
 		z-index: 1000;
 		height:0;
@@ -2014,6 +2015,10 @@ section#booksrecommend #book-details {
 	}
 	section#submissionpopup{
 		.item-header{padding-left: calc(1rem + 3rem - 2vw);}
+		.filter-buttons {
+			margin-top: 0; border-bottom: 1px dotted; padding-bottom: 1em; margin-bottom: 2em;
+			button{    display: inline-block;width: auto;}
+		}
 	}
 	section#enquiry{
 		h2{border: 0;width:100%;margin-bottom: 0;}

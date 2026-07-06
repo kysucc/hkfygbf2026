@@ -1018,32 +1018,6 @@ section {
       border-radius: 50em;
       transition: 0.3s background;
       border: 0; }
-    section#award#submissionpopup .item-content-wrap, section#votepopup#submissionpopup .item-content-wrap, section#submissionpopup#submissionpopup .item-content-wrap {
-      width: calc(100% - 6rem);
-      margin-left: 3rem; }
-    section#award#submissionpopup .item-topic-title, section#votepopup#submissionpopup .item-topic-title, section#submissionpopup#submissionpopup .item-topic-title {
-      font-size: 1.2em;
-      font-weight: 500;
-      color: #CEA66D; }
-    section#award#submissionpopup .item-topic-location:before, section#votepopup#submissionpopup .item-topic-location:before, section#submissionpopup#submissionpopup .item-topic-location:before {
-      content: '旅行的地方'; }
-    section#award#submissionpopup .item-topic-topic:before, section#votepopup#submissionpopup .item-topic-topic:before, section#submissionpopup#submissionpopup .item-topic-topic:before {
-      content: '題目'; }
-    section#award#submissionpopup .item-content-content, section#votepopup#submissionpopup .item-content-content, section#submissionpopup#submissionpopup .item-content-content {
-      white-space: pre-wrap; }
-    section#award#submissionpopup .filter-buttons, section#votepopup#submissionpopup .filter-buttons, section#submissionpopup#submissionpopup .filter-buttons {
-      margin-top: 1em; }
-      section#award#submissionpopup .filter-buttons button, section#votepopup#submissionpopup .filter-buttons button, section#submissionpopup#submissionpopup .filter-buttons button {
-        display: block;
-        width: 100%;
-        border: 0;
-        background: transparent;
-        text-align: left;
-        padding: 0.2em 1em;
-        margin-bottom: 0.5em; }
-        section#award#submissionpopup .filter-buttons button.active, section#votepopup#submissionpopup .filter-buttons button.active, section#submissionpopup#submissionpopup .filter-buttons button.active {
-          font-weight: bold;
-          background: #bedbf7; }
     section#award #tabBtns, section#votepopup #tabBtns, section#submissionpopup #tabBtns {
       display: flex;
       margin: 0;
@@ -1176,6 +1150,32 @@ section {
       font-size: 0.7em;
       text-align: center;
       margin-top: 3em; }
+  section#submissionpopup .item-content-wrap {
+    width: calc(100% - 6rem);
+    margin-left: 3rem; }
+  section#submissionpopup .item-topic-title {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #CEA66D; }
+  section#submissionpopup .item-topic-location:before {
+    content: '旅行的地方'; }
+  section#submissionpopup .item-topic-topic:before {
+    content: '題目'; }
+  section#submissionpopup .item-content-content {
+    white-space: pre-wrap; }
+  section#submissionpopup .filter-buttons {
+    margin-top: 1em; }
+    section#submissionpopup .filter-buttons button {
+      display: block;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      text-align: left;
+      padding: 0.2em 1em;
+      margin-bottom: 0.5em; }
+      section#submissionpopup .filter-buttons button.active {
+        font-weight: bold;
+        background: #bedbf7; }
   section#votepopup, section#submissionpopup, section#overlay {
     z-index: 1000;
     height: 0;
@@ -1905,6 +1905,14 @@ td {
 
   section#submissionpopup .item-header {
     padding-left: calc(1rem + 3rem - 2vw); }
+  section#submissionpopup .filter-buttons {
+    margin-top: 0;
+    border-bottom: 1px dotted;
+    padding-bottom: 1em;
+    margin-bottom: 2em; }
+    section#submissionpopup .filter-buttons button {
+      display: inline-block;
+      width: auto; }
 
   section#enquiry h2 {
     border: 0;

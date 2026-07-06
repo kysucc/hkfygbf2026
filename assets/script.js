@@ -356,7 +356,7 @@ function initDatabase() {
         },
         error: function(xhr, status, error) {
             console.error("Database Error:", error);
-            $('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
+            //$('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
         }
     });
 }

@@ -190,7 +190,7 @@ jQuery(document).ready(function ($){
             }
 
             const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfOftnBH9KBpcaRaQLOokzvuTUsfr9rFRO_q348SelTbG1i0w/formResponse?&callback=googleDocCallback";
-            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQV10NzWQim63QXQVv4hPFKFcc8lD_9aOYRzEgel20H1PpuVP6lR2hLFRvpK4dJrWBUu6PZQvGiJZL/gviz/tq?tqx=out:csv";
+            const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSQV10NzWQim63QXQVv4hPFKFcc8lD_9aOYRzEgel20H1PpuVP6lR2hLFRvpK4dJrWBUu6PZQvGiJZL/pub?output=csv";
 
             $('#InstantWritingSubmit').click(function(e){
                 var iwstatus = true;

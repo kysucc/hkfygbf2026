@@ -242,7 +242,7 @@ jQuery(document).ready(function ($){
                     });
                 }
             });
-
+/*
             async function loadRandomSubmission() {
                 console.log('loadfunction');
                 const displayDiv = document.getElementById('randomDisplay');
@@ -282,12 +282,143 @@ jQuery(document).ready(function ($){
 
                 } catch (error) {
                     console.error("Error reading database:", error);
-                    displayDiv.innerHTML = "<p style='color:red;'>Failed to load dynamic submissions.</p>";
+                    //displayDiv.innerHTML = "<p style='color:red;'>Failed to load dynamic submissions.</p>";
                 }
             }
             loadRandomSubmission();
 
+*/
 
+            // Storage pools for our filtered submissions
+let allSubmissions = [];
+let databaseByTopic = {
+    "倒楣時刻": [],
+    "特別手信": [],
+    "念念不忘": [],
+    "難忘風景": []
+};
+
+// Tracks which filter the user currently has selected (Defaults to "全部")
+let currentFilter = "全部";
+
+// ==========================================
+// TASK 1: FETCH DATA & PRE-SORT BY TOPIC (jQuery AJAX)
+// ==========================================
+function initDatabase() {
+    $.ajax({
+        url: CSV_URL,
+        method: "GET",
+        dataType: "text",
+        success: function(csvText) {
+            // Split CSV into rows cleanly
+            const rows = csvText.split(/\r?\n/).map(row => row.split(","));
+
+            // Clear arrays on init
+            allSubmissions = [];
+            databaseByTopic = { "倒楣時刻": [], "特別手信": [], "念念不忘": [], "難忘風景": [] };
+
+            // Loop rows (Skip header row at index 0)
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                if (!row[0] || row[0].trim() === "") continue; // Skip blank lines
+
+                // Helper to strip Google CSV wrapper quotes safely
+                const clean = (val) => val ? val.replace(/^"|"$/g, "").trim() : "";
+
+                const submission = {
+                    location: clean(row[1]), // 旅行的地方
+                    topic: clean(row[2]),    // 題目
+                    content: clean(row[3])   // 內容
+                };
+
+                allSubmissions.push(submission);
+
+                if (databaseByTopic[submission.topic]) {
+                    databaseByTopic[submission.topic].push(submission);
+                }
+            }
+
+            console.log(`Successfully loaded ${allSubmissions.length} submissions.`);
+            
+            // Show an initial random item on launch
+            showRandomSubmission();
+        },
+        error: function(xhr, status, error) {
+            console.error("Database Error:", error);
+            $('#Submissions').append(`<p style="color: red;">讀取失敗: 無法連接資料庫</p>`);
+        }
+    });
+}
+
+// ==========================================
+// TASK 2: PICK AND RENDER A RANDOM SUBMISSION
+// ==========================================
+function showRandomSubmission() {
+    // Determine the active data pool
+    let currentPool = (currentFilter === "全部") ? allSubmissions : databaseByTopic[currentFilter];
+
+    // Ensure our #SubmissionContent placeholder exists inside #Submissions container
+    if ($('#SubmissionContent').length === 0) {
+        $('#Submissions').append('<div id="SubmissionContent"></div>');
+    }
+
+    const $displayZone = $('#SubmissionContent');
+
+    // Handle empty state
+    if (!currentPool || currentPool.length === 0) {
+        $displayZone.html(`
+            <div class="no-data" style="margin-top:20px; color:#777; font-style:italic;">
+                暫時沒有關於「${currentFilter}」的投稿。
+            </div>`);
+        return;
+    }
+
+    // Pick random item
+    const randomIndex = Math.floor(Math.random() * currentPool.length);
+    const selected = currentPool[randomIndex];
+
+    // Fade out old content and fade in new content smoothly using jQuery effects
+    $displayZone.hide().html(`
+        <div class="submission-card" style="margin-top: 20px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fff;">
+            <div style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
+                <span class="badge-topic" style="background: #007bff; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
+                    ${selected.topic}
+                </span>
+                <span class="badge-location" style="color: #555; font-size: 14px; font-weight: bold;">
+                    📍 ${selected.location}
+                </span>
+            </div>
+            <p class="submission-text" style="font-size: 16px; line-height: 1.6; color: #333; margin: 0;">
+                ${selected.content}
+            </p>
+        </div>
+    `).fadeIn(300); 
+}
+
+// ==========================================
+// TASK 3: BIND THE EVENT LISTENERS (jQuery DOM Ready)
+// ==========================================
+$(document).ready(function() {
+    // Start data connection load
+    initDatabase();
+
+    // Random shuffle trigger via main button
+    $('#ViewSubmissions').on('click', function() {
+        showRandomSubmission();
+    });
+
+    // Filtering tabs inside #Submissions
+    $('#Submissions button[data-filter]').on('click', function() {
+        currentFilter = $(this).attr('data-filter');
+        
+        // Reset styles and highlight the selected button using jQuery chaining
+        $('#Submissions button[data-filter]').css('font-weight', 'normal');
+        $(this).css('font-weight', 'bold');
+
+        // Draw fresh matching submission instantly
+        showRandomSubmission();
+    });
+});
 
 
 

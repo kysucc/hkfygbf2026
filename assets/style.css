@@ -899,7 +899,7 @@ section {
           width: 1em;
           height: 1em;
           display: inline-block;
-          margin-right: 0.5em;
+          /*margin-right: 0.5em;*/
           margin-bottom: -0.1em;
           background: url(icon-book.svg) no-repeat 50% 50%/contain; }
         section#award #award-details .award-btn:hover, section#votepopup #award-details .award-btn:hover, section#submissionpopup #award-details .award-btn:hover {
